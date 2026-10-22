@@ -1,0 +1,255 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------
+   Sistema visual Casa de Miriam
+   Tinta (verde noche) · Cal (paredes encaladas) · Teja (tejados
+   de Loja) · Latón (antigüedades) · Musgo (plantas)
+   ------------------------------------------------------------ */
+@theme {
+  --color-ink: #13201a;
+  --color-ink-2: #1a2a22;
+  --color-ink-3: #24362c;
+  --color-cal: #f4eee3;
+  --color-cal-2: #ebe2d3;
+  --color-cal-3: #ddd2bf;
+  --color-teja: #a2441f;
+  --color-teja-2: #8a3818;
+  --color-teja-soft: #e08a5f;
+  --color-brass: #c9a96a;
+  --color-moss: #56664f;
+  --color-stone: #5d5a51;
+  --color-mist: #b9c0b5;
+
+  --font-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cal text-ink font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-teja);
+    color: var(--color-cal);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    font-weight: 380;
+    letter-spacing: -0.015em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 2px solid var(--color-teja-soft);
+    outline-offset: 3px;
+  }
+  img { max-width: 100%; height: auto; }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 84rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) { .container-x { padding-inline: 2rem; } }
+  @media (min-width: 1024px) { .container-x { padding-inline: 3rem; } }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .section-pad { padding-block: 5.5rem; }
+  @media (min-width: 1024px) { .section-pad { padding-block: 8.5rem; } }
+
+  /* Botones */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    padding: 0.85rem 1.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    transition: background-color 0.35s var(--ease-out-soft), color 0.35s var(--ease-out-soft),
+      border-color 0.35s var(--ease-out-soft), transform 0.2s var(--ease-out-soft);
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn:active { transform: translateY(1px) scale(0.99); }
+  .btn svg { transition: transform 0.35s var(--ease-out-soft); }
+  .btn:hover svg.arrow { transform: translateX(4px); }
+  .btn-primary { background: var(--color-teja); color: var(--color-cal); }
+  .btn-primary:hover { background: var(--color-teja-2); }
+  .btn-light { border-color: color-mix(in oklab, var(--color-cal) 55%, transparent); color: var(--color-cal); }
+  .btn-light:hover { background: var(--color-cal); color: var(--color-ink); border-color: var(--color-cal); }
+  .btn-dark { border-color: color-mix(in oklab, var(--color-ink) 35%, transparent); color: var(--color-ink); }
+  .btn-dark:hover { background: var(--color-ink); color: var(--color-cal); border-color: var(--color-ink); }
+  .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s var(--ease-out-soft);
+  }
+  .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1px; }
+
+  /* Etiqueta discreta de contenido de demostración */
+  .demo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border: 1px dashed currentColor;
+    opacity: 0.8;
+  }
+
+  /* Líneas de puntos de carta clásica entre nombre y precio */
+  .leader {
+    flex: 1;
+    min-width: 1.5rem;
+    border-bottom: 1px dotted color-mix(in oklab, var(--color-ink) 35%, transparent);
+    transform: translateY(-0.35em);
+  }
+
+  /* Grano sutil para fondos oscuros */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Formulario */
+  .field-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--color-mist);
+  }
+  .field {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.8rem 0.1rem;
+    background: transparent;
+    color: var(--color-cal);
+    font-size: 1.0625rem;
+    border: 0;
+    border-bottom: 1px solid color-mix(in oklab, var(--color-cal) 30%, transparent);
+    border-radius: 0;
+    transition: border-color 0.3s;
+    appearance: none;
+  }
+  .field::placeholder { color: color-mix(in oklab, var(--color-cal) 40%, transparent); }
+  .field:hover { border-color: color-mix(in oklab, var(--color-cal) 55%, transparent); }
+  .field:focus { outline: none; border-color: var(--color-brass); }
+  .field:focus-visible { outline: none; box-shadow: 0 1px 0 0 var(--color-brass); }
+  .field[aria-invalid='true'] { border-color: var(--color-teja-soft); }
+  select.field {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23c9a96a' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    padding-right: 1.75rem;
+  }
+  select.field option { color: var(--color-ink); background: var(--color-cal); }
+  input[type='date'].field::-webkit-calendar-picker-indicator { filter: invert(0.85) sepia(0.4); cursor: pointer; }
+  textarea.field { min-height: 6rem; resize: vertical; }
+}
+
+/* ------------------------------------------------------------
+   Animaciones de entrada (respetan prefers-reduced-motion)
+   ------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--ease-out-soft), transform 1s var(--ease-out-soft);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.img-zoom img { transition: transform 1.4s var(--ease-out-soft); }
+.img-zoom:hover img { transform: scale(1.045); }
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes hero-scale {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.animate-hero-in { animation: hero-in 1.2s var(--ease-out-soft) both; animation-delay: var(--delay, 0ms); }
+.animate-hero-scale { animation: hero-scale 2.4s var(--ease-out-soft) both; }
+.animate-scroll-cue { animation: scroll-cue 2.4s var(--ease-out-soft) infinite; }
+.animate-fade-in { animation: fade-in 0.35s ease both; }
+.animate-rise-in { animation: rise-in 0.5s var(--ease-out-soft) both; animation-delay: var(--delay, 0ms); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ------------------------------------------------------------
+   Versión imprimible de la carta
+   ------------------------------------------------------------ */
+@media print {
+  @page { margin: 16mm; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  body.print-menu > #root > *:not(main),
+  body.print-menu main > *:not(#carta) { display: none !important; }
+  body.print-menu #carta { padding: 0 !important; }
+  body.print-menu .no-print { display: none !important; }
+  body.print-menu .print-only { display: block !important; }
+  body.print-menu .menu-category { display: block !important; break-inside: avoid-page; }
+  body.print-menu .menu-dish { break-inside: avoid; }
+  body.print-menu .reveal { opacity: 1 !important; transform: none !important; }
+}
+.print-only { display: none; }

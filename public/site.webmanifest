@@ -1,0 +1,9 @@
+{
+  "name": "Casa de Miriam",
+  "short_name": "Casa de Miriam",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "theme_color": "#13201a",
+  "background_color": "#f4eee3",
+  "display": "standalone",
+  "start_url": "/"
+}
