@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Accessibility, ArrowUpRight, MapPin, Navigation, Phone } from 'lucide-react'
+import { Accessibility, ArrowUpRight, Mail, MapPin, Navigation, Phone } from 'lucide-react'
 import { OpenStatus } from '../components/OpenStatus'
 import { SectionHeading, WhatsAppIcon } from '../components/ui'
 import { site, whatsappUrl } from '../config/site'
@@ -108,6 +108,15 @@ export function Visit() {
                 <span>
                   <span className="block text-xs uppercase tracking-[0.18em] text-stone">Escribir</span>
                   <span className="font-medium">WhatsApp</span>
+                </span>
+              </a>
+              <a href={`mailto:${site.email}`} className="group flex items-center gap-4 sm:col-span-2">
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-ink/20 transition-colors group-hover:bg-ink group-hover:text-cal">
+                  <Mail className="h-4 w-4" strokeWidth={1.5} />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs uppercase tracking-[0.18em] text-stone">Correo</span>
+                  <span className="font-medium [overflow-wrap:anywhere]">{site.email}</span>
                 </span>
               </a>
             </div>

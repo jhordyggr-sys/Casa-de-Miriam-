@@ -8,8 +8,8 @@ export function Hero() {
   return (
     <section id="inicio" aria-labelledby="hero-title" className="grain relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-cal">
       <div className="absolute inset-0 -z-10">
-        <Img name="hero" priority sizes="100vw" className="h-full w-full" imgClassName="animate-hero-scale object-[62%_50%]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10" aria-hidden="true" />
+        <Img name="real-burger" priority sizes="100vw" className="h-full w-full" imgClassName="animate-hero-scale object-[78%_50%]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/60 to-transparent lg:via-ink/45" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/30" aria-hidden="true" />
       </div>
 

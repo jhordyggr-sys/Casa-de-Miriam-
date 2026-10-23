@@ -27,7 +27,7 @@ export function Featured() {
               </>
             }
           />
-          <DemoTag className="reveal self-start text-brass lg:self-end">Platos y precios de ejemplo</DemoTag>
+          <DemoTag className="reveal self-start text-brass lg:self-end">Precios referenciales</DemoTag>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-16">
@@ -37,7 +37,7 @@ export function Featured() {
               <span className="eyebrow absolute left-0 top-0 bg-teja px-4 py-2 text-[0.65rem] text-cal">Especialidad de la casa</span>
             </div>
             <div className="mt-8 flex items-start justify-between gap-6">
-              <div>
+              <div className="min-w-0">
                 <p className="eyebrow text-[0.65rem] text-mist">{main.category}</p>
                 <h3 className="mt-3 text-4xl sm:text-5xl">{main.name}</h3>
                 <p className="mt-4 max-w-lg text-mist">{main.description}</p>

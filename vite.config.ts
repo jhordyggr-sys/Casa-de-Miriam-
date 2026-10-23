@@ -11,7 +11,7 @@ const DAY_SCHEMA = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Fri
  * Así la dirección, el teléfono y el horario son idénticos en todo el sitio.
  */
 function seo(): Plugin {
-  const title = `${site.name} · Restaurante en ${site.address.city}, Ecuador | Hamburguesas y parrilla`
+  const title = `${site.name} · Cocina libre, hamburguesas y cócteles en ${site.address.city}, Ecuador`
   const description = `${site.shortDescription} ${site.address.street}. Reserva por WhatsApp.`
   const base = site.url.replace(/\/$/, '')
 
@@ -23,6 +23,7 @@ function seo(): Plugin {
     url: `${base}/`,
     image: `${base}/og-image.jpg`,
     telephone: site.phone.e164,
+    email: site.email,
     servesCuisine: site.cuisine,
     acceptsReservations: true,
     address: {
@@ -57,6 +58,7 @@ function seo(): Plugin {
         .replaceAll('%SEO_URL%', `${base}/`)
         .replaceAll('%SEO_IMAGE%', `${base}/og-image.jpg`)
         .replaceAll('%SEO_ADDRESS%', esc(fullAddress))
+        .replaceAll('%SEO_PHONE%', esc(site.phone.display))
         .replace('<!--SEO_JSONLD-->', `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`)
     },
     generateBundle() {

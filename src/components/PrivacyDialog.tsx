@@ -44,7 +44,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           </p>
           <p>
             Para ejercer tus derechos de acceso, rectificación o eliminación conforme a la Ley Orgánica de Protección de Datos Personales del
-            Ecuador, escríbenos al {site.phone.display} o por WhatsApp.
+            Ecuador, escríbenos a {site.email}, llámanos al {site.phone.display} o contáctanos por WhatsApp.
           </p>
           <p className="text-xs">Texto base orientativo. Revísalo con asesoría legal antes de publicar el sitio.</p>
         </div>

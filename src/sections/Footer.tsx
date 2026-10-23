@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react'
+import { ArrowUp, Mail } from 'lucide-react'
 import { InstagramIcon, WhatsAppIcon, Wordmark } from '../components/ui'
 import { navLinks } from '../data/content'
 import { site, whatsappUrl } from '../config/site'
@@ -43,6 +43,11 @@ export function Footer({ onPrivacy }: { onPrivacy: () => void }) {
               <li>
                 <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="link-underline inline-flex items-center gap-2">
                   <WhatsAppIcon className="h-4 w-4" /> WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${site.email}`} className="link-underline inline-flex items-center gap-2 [overflow-wrap:anywhere]">
+                  <Mail className="h-4 w-4 shrink-0" strokeWidth={1.5} /> {site.email}
                 </a>
               </li>
               <li>

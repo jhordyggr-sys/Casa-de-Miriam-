@@ -4,6 +4,7 @@ import { Hero } from './sections/Hero'
 import { Intro } from './sections/Intro'
 import { Featured } from './sections/Featured'
 import { Menu } from './sections/Menu'
+import { Promos } from './sections/Promos'
 import { Story } from './sections/Story'
 import { Gallery } from './sections/Gallery'
 import { Reviews } from './sections/Reviews'
@@ -41,6 +42,7 @@ export default function App() {
         <Intro />
         <Featured />
         <Menu />
+        <Promos />
         <Story />
         <Gallery />
         <Reviews />

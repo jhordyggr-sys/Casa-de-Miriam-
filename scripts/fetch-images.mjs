@@ -7,7 +7,7 @@ const outDir = new URL('../public/images/', import.meta.url)
 await mkdir(outDir, { recursive: true })
 const force = process.argv.includes('--force')
 
-for (const img of manifest.images) {
+for (const img of manifest.images.filter((i) => !i.local)) {
   for (const scale of [1, 0.5]) {
     const w = Math.round(img.w * scale)
     const h = Math.round(img.h * scale)

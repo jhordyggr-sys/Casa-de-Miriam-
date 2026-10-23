@@ -33,7 +33,7 @@ export function Story() {
           <h2 id="story-title" className="reveal text-[2.6rem] sm:text-6xl">
             {story.title}
           </h2>
-          <DemoTag className="reveal mt-6 text-teja">Historia conceptual · sustituir por la real</DemoTag>
+          <DemoTag className="reveal mt-6 text-teja">Relato propuesto · revisar con el negocio</DemoTag>
           <div className="mt-8 space-y-5 text-lg text-stone">
             {story.paragraphs.map((p, i) => (
               <p key={i} className="reveal" style={{ ['--delay' as string]: `${i * 90}ms` }}>

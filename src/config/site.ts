@@ -22,10 +22,11 @@ export interface OpeningPeriod {
 export const site = {
   name: 'Casa de Miriam',
   /** Frase principal de la marca (propuesta editable) */
-  tagline: 'Fuego, sazón y sobremesa en el corazón de Loja',
+  /** Lema publicado en Instagram */
+  tagline: 'Cocina libre, hamburguesas y cócteles en el corazón de Loja',
   shortDescription:
     'Restaurante en el centro de Loja: hamburguesas de autor, carnes al fuego y sabores lojanos en una casa llena de plantas y antigüedades.',
-  cuisine: ['Hamburguesas', 'Parrilla', 'Cocina lojana'],
+  cuisine: ['Cocina libre', 'Hamburguesas', 'Cócteles'],
 
   /** URL pública definitiva del sitio (EJEMPLO: sustituir por el dominio real) */
   url: 'https://www.casademiriam.ec',
@@ -41,20 +42,20 @@ export const site = {
   },
   geo: { lat: -3.9989248, lng: -79.1980535 }, // Google Maps
 
-  /** Teléfono publicado en Google Maps */
-  phone: { display: '098 226 2262', e164: '+593982262262' },
+  /** Teléfono de contacto del local (confirmado por el negocio) */
+  phone: { display: '099 892 1901', e164: '+593998921901' },
+  email: 'casjuandi@hotmail.com',
 
   /**
    * Número de WhatsApp en formato internacional SIN "+" ni espacios.
-   * Por defecto usa el teléfono publicado en Google Maps.
-   * ⚠ CONFIRMAR con el restaurante que este número recibe WhatsApp.
+   * Es el número publicado en la biografía de Instagram (wa.me/593998921901).
    */
-  whatsapp: '593982262262',
+  whatsapp: '593998921901',
 
   social: {
     instagram: {
-      handle: 'casademiriam46',
-      url: 'https://www.instagram.com/casademiriam46/', // enlace de la ficha de Google Maps
+      handle: 'casade_miriam',
+      url: 'https://www.instagram.com/casade_miriam/',
     },
   },
 
@@ -74,7 +75,14 @@ export const site = {
    * No se incluye en los datos estructurados (Google no permite
    * marcar reseñas de terceros como propias).
    */
-  googleRating: { show: true, value: 4.2, count: 78, checkedOn: 'octubre de 2026' },
+  googleRating: {
+    show: true,
+    value: 4.2,
+    count: 78,
+    // Distribución por estrellas publicada en Google Maps (5 → 1)
+    distribution: [56, 5, 1, 5, 11],
+    checkedOn: 'octubre de 2026',
+  },
 
   /** Zona horaria del restaurante: usada para "Abierto ahora" y validar reservas */
   timeZone: 'America/Guayaquil',

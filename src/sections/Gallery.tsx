@@ -1,9 +1,10 @@
 import { useCallback, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Img } from '../components/Img'
-import { SectionHeading } from '../components/ui'
+import { InstagramIcon, SectionHeading } from '../components/ui'
 import { gallery } from '../data/content'
 import { img } from '../lib/images'
+import { site } from '../config/site'
 import { useDialogKeys, useLockBody } from '../hooks/hooks'
 
 const SPAN: Record<(typeof gallery)[number]['span'], string> = {
@@ -59,6 +60,11 @@ export function Gallery() {
                 aria-label={`Ampliar fotografía: ${g.caption}`}
               >
                 <Img name={g.key} sizes="(min-width: 768px) 25vw, 50vw" className="h-full w-full" />
+                {img(g.key).real && (
+                  <span className="absolute left-2 top-2 inline-flex items-center gap-1 bg-ink/70 px-2 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-cal">
+                    <InstagramIcon className="h-3 w-3" /> Real
+                  </span>
+                )}
                 <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4 pt-12 font-serif text-lg italic text-cal opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
                   {g.caption}
                 </span>
@@ -66,7 +72,9 @@ export function Gallery() {
             </li>
           ))}
         </ul>
-        <p className="mt-5 text-xs uppercase tracking-[0.2em] text-stone">Fotografías ilustrativas · sustituir por fotos del local</p>
+        <p className="mt-5 text-xs text-stone">
+          Las fotos marcadas como <strong className="font-semibold text-ink">Real</strong> son de nuestro Instagram; el resto son ilustrativas.
+        </p>
       </div>
 
       {open && current && asset && (
@@ -120,7 +128,12 @@ export function Gallery() {
               <ChevronRight className="h-7 w-7" strokeWidth={1.25} />
             </button>
           </div>
-          <p className="px-5 py-5 text-center font-serif text-xl italic sm:py-7">{current.caption}</p>
+          <p className="px-5 py-5 text-center font-serif text-xl italic sm:py-7">
+            {current.caption}
+            <span className="mt-1 block font-sans text-xs not-italic tracking-[0.14em] text-mist uppercase">
+              {asset.real ? `Foto de @${site.social.instagram.handle}` : 'Imagen ilustrativa'}
+            </span>
+          </p>
         </div>
       )}
     </section>

@@ -68,13 +68,13 @@ export function Menu() {
             eyebrow="La carta"
             title={
               <>
-                Cocina de casa, <em className="text-teja">sin atajos</em>
+                Para pedir <em className="text-teja">sin dudar</em>
               </>
             }
-            intro="Hamburguesas, carnes al fuego, recetas lojanas y opciones sin carne. Precios en dólares, IVA incluido."
+            intro="Hamburguesas de autor, platos para compartir, café lojano y cócteles. Precios en dólares, referenciales."
           />
           <div className="reveal flex flex-wrap items-center gap-3">
-            <DemoTag className="text-teja">Carta de ejemplo</DemoTag>
+            <DemoTag className="text-teja">Precios referenciales</DemoTag>
             {site.menuPdfUrl ? (
               <a href={site.menuPdfUrl} download className="btn btn-dark min-h-11 px-4 py-2">
                 <Download className="h-4 w-4" strokeWidth={1.5} /> Descargar PDF

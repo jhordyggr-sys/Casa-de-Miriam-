@@ -60,33 +60,32 @@ No se guarda ningún dato. Las horas del selector salen del horario de atención
 ## 5. SEO incluido
 
 - Título y metadescripción, URL canónica, Open Graph y tarjeta de Twitter (`public/og-image.jpg`, 1200×630).
-- JSON-LD `Restaurant` con dirección, coordenadas, teléfono, horario, tipo de cocina e Instagram. Por política de Google **no** incluye la calificación de terceros.
+- JSON-LD `Restaurant` con dirección, coordenadas, teléfono, correo, horario, tipo de cocina e Instagram. Por política de Google **no** incluye la calificación de terceros.
 - `sitemap.xml` y `robots.txt` se generan al compilar. Además: favicon SVG, `site.webmanifest`, jerarquía H1/H2/H3 y textos alternativos en todas las imágenes.
-- Rendimiento: imágenes WebP locales con `srcset`, dimensiones explícitas, carga diferida (lazy loading), precarga del hero y un único paquete JS de unos 72 kB comprimido.
+- Rendimiento: imágenes locales optimizadas (WebP y JPEG) con `srcset`, dimensiones explícitas, carga diferida (lazy loading), precarga del hero y un único paquete JS de unos 72 kB comprimido.
 
-## 6. Datos reales que hay que proporcionar
+## 6. Datos reales y pendientes
 
-**Ya tomados de la ficha pública de Google Maps (octubre de 2026). Confírmalos:**
-- [ ] Dirección: Miguel Riofrío y 24 de Mayo 166-22, 110150 Loja
-- [ ] Teléfono: 098 226 2262. **¿Este número recibe WhatsApp?** Se usa como número de reservas.
-- [ ] Horario: lunes a miércoles de 16:00 a 22:50, jueves a sábado de 16:00 a 23:50, domingo cerrado
-- [ ] Instagram: @casademiriam46 (sin sesión iniciada, Instagram mostró «perfil no disponible»; verifica que el enlace sea correcto)
-- [ ] Calificación: 4,2 con 78 reseñas en Google. Actualízala o desactívala con `googleRating.show`.
-- [ ] Entrada accesible para silla de ruedas (según Google)
+**Datos reales ya integrados (octubre de 2026):**
+- Contacto: teléfono y WhatsApp 099 892 1901, correo casjuandi@hotmail.com (facilitados por el negocio; el WhatsApp coincide con la biografía de Instagram).
+- Instagram: @casade_miriam, con su lema «Cocina libre • Hamburguesas • Cócteles».
+- Fotos reales de Instagram: hamburguesa con queso (hero), postre, michelada y sangría (recortes sin texto de los afiches), los 8 afiches de promociones y 5 portadas de publicaciones (`local: true` en `src/data/images.json`).
+- Promociones por día (Instagram, 15 de abril de 2026) y la promo de café de octubre, que se oculta sola el 1 de noviembre (`src/data/promos.ts`).
+- Google Maps: dirección, horario, 4,2 con 78 reseñas, distribución por estrellas, temas más mencionados y dos reseñas de 5 estrellas (autor, fecha y resumen, con enlace a Google) en `src/data/reviews.ts`.
+- Nombres de platos citados en Instagram y en las reseñas: La Rausch, Milos Show, papas en salsa de champiñones, tigrillo, canoa, carne al vino, costillas, micheladas, sangría, tinto de verano y café.
 
-**Pendientes (ahora hay contenido de ejemplo):**
-- [ ] **Carta real**: platos, descripciones, precios y alérgenos confirmados por cocina
-- [ ] PDF de la carta, si existe (`menuPdfUrl`). Mientras tanto se ofrece «Imprimir carta».
-- [ ] Precio medio por persona
-- [ ] **Fotografías propias**: platos, salón, fachada, cocina, equipo. Las actuales son de Unsplash (licencia libre, uso comercial).
-- [ ] Historia real del restaurante, quién es Miriam y frase de la fundadora
-- [ ] Testimonios **autorizados** por clientes (nombre o iniciales)
-- [ ] Platos destacados (los ids en `featuredIds`)
-- [ ] Estacionamiento cercano (`accessibility.parking`)
-- [ ] Dominio definitivo (`url`)
-- [ ] Política de privacidad revisada por asesoría legal
-- [ ] Logotipo oficial, si existe (ahora hay un monograma «M» provisional)
+**Por confirmar o completar:**
+- [ ] **Domingos:** Google Maps indica que el local cierra, pero hay una promo de micheladas para el domingo. La web oculta esa promo mientras el domingo figure cerrado en `site.hours`.
+- [ ] **Precios y descripciones de la carta.** Son referenciales; solo el 2 × $15 de costillas es real.
+- [ ] Vigencia de las promociones semanales (publicadas en abril de 2026).
+- [ ] Reseñas literales: si los autores lo autorizan, pega el texto en el campo `text` de cada reseña.
+- [ ] Más fotos propias en alta resolución (salón, fachada, equipo, platos). Las imágenes marcadas como «ilustrativas» son de Unsplash.
+- [ ] Historia real del restaurante (ahora hay un relato propuesto).
+- [ ] Estacionamiento cercano (`accessibility.parking`).
+- [ ] Dominio definitivo (`url`) y logotipo oficial en vector.
+- [ ] Política de privacidad revisada por asesoría legal.
 
 ## 7. Créditos de imagen
 
-Fotos de demostración de [Unsplash](https://unsplash.com/license). Los identificadores de cada foto están en `src/data/images.json`; el archivo original de cada una está en `https://images.unsplash.com/photo-<id>`. Sustitúyelas por fotos del local antes del lanzamiento.
+- Fotos marcadas con `local: true` en `src/data/images.json`: publicaciones de @casade_miriam, usadas con autorización del negocio. Cada entrada incluye el enlace a su publicación (`source`).
+- Resto: [Unsplash](https://unsplash.com/license), uso comercial permitido. El archivo original está en `https://images.unsplash.com/photo-<id>`.
